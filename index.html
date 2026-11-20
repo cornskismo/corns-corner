@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Corn's Corner</title><meta name="theme-color" content="#101a22"><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><style>
+:root{color-scheme:dark;--bg:#101a22;--surface:#192832;--surface2:#233541;--text:#f5f7f8;--muted:#a9b7bf;--accent:#e7ad57;--green:#75d4ae}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#213543 0%,var(--bg) 65%);font:16px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text)}main{max-width:620px;margin:0 auto;padding:22px 18px 50px}.head{display:flex;align-items:center;justify-content:space-between;gap:10px}.eyebrow{font-size:11px;letter-spacing:.18em;font-weight:800;color:var(--accent);text-transform:uppercase}h1{margin:4px 0;font-size:30px;letter-spacing:-.05em}p{margin:4px 0 0;color:var(--muted)}.pill{border:1px solid #52636c;border-radius:100px;padding:6px 10px;color:var(--muted);font-size:12px}.stage{border:1px solid #445966;background:linear-gradient(155deg,#263e4c,#182a34);border-radius:22px;padding:25px 20px;margin:22px 0 13px;text-align:center;box-shadow:0 12px 35px #070d1240}.state{font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-size:14px}.time{font-size:clamp(75px,17vw,110px);font-variant-numeric:tabular-nums;font-weight:750;line-height:1.18;letter-spacing:-.07em;margin:8px 0}.round{color:var(--muted);font-weight:600}.callout{font-weight:850;font-size:clamp(30px,8vw,46px);min-height:72px;display:flex;align-items:center;justify-content:center;margin-top:18px;letter-spacing:-.035em}.description{font-size:14px;color:var(--muted);min-height:25px}.progress{display:flex;gap:5px;margin-top:22px}.progress span{height:6px;flex:1;border-radius:6px;background:#3e5360}.progress span.active{background:var(--accent)}.progress span.done{background:var(--green)}.controls{display:flex;gap:10px}.btn{border:0;border-radius:14px;min-height:51px;padding:12px 18px;font-size:16px;font-weight:750;cursor:pointer}.primary{flex:2;background:var(--accent);color:#1b1c20}.secondary{flex:1;background:var(--surface2);color:var(--text);border:1px solid #52616b}.card{background:var(--surface);border:1px solid #334b57;border-radius:18px;padding:18px;margin-top:18px}h2{font-size:18px;margin:0 0 14px}.settings{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field label{display:block;color:var(--muted);font-size:12px;font-weight:700;margin-bottom:5px}.field select{appearance:none;width:100%;padding:12px;background:#263a46;border:1px solid #48606f;border-radius:10px;color:var(--text);font-size:15px}.punches{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:10px}.punches label{display:flex;align-items:center;gap:7px;background:#263a46;border:1px solid #48606f;border-radius:10px;padding:10px 8px;font-size:12px}.punches input{flex:none}.subheading{font-weight:700;font-size:14px;margin:17px 0 4px}.checks{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px}.checks label{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--text)}input[type=checkbox]{accent-color:var(--accent);width:18px;height:18px}.note{font-size:12px;color:var(--muted);margin-top:13px}.hint{font-size:14px;color:var(--muted)}.legend{font-size:13px;color:var(--muted)}.disabled{opacity:.55}.status{min-height:21px;color:var(--green);font-size:12px;margin-top:7px}@media(max-width:390px){.settings{gap:10px}.stage{padding:20px 12px}.controls{gap:7px}.btn{padding:10px 12px}}
+</style></head><body><main><div class="head"><div><div class="eyebrow">SHADOWBOXING</div><h1>Corn's Corner 🥊</h1></div><div class="pill">3 × 3 default</div></div>
+<section class="stage" aria-live="off"><div class="state" id="state">READY</div><div class="time" id="time">3:00</div><div class="round" id="round">Round 1 of 3</div><div class="callout" id="callout" aria-live="polite">Gloves up.</div><div class="description" id="desc">Your first combo is coming.</div><div class="progress" id="progress"></div></section>
+<div class="controls"><button class="btn primary" id="start">Start workout</button><button class="btn secondary" id="reset">Reset</button></div><div class="status" id="status" role="status"></div>
+<section class="card"><h2>Workout settings</h2><div class="settings"><div class="field"><label for="rounds">Rounds</label><select id="rounds"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option><option>12</option></select></div><div class="field"><label for="duration">Round length</label><select id="duration"><option value="60">1 minute</option><option value="120">2 minutes</option><option value="180" selected>3 minutes</option><option value="240">4 minutes</option><option value="300">5 minutes</option></select></div><div class="field"><label for="rest">Rest between rounds</label><select id="rest"><option value="15">15 seconds</option><option value="30">30 seconds</option><option value="45">45 seconds</option><option value="60" selected>60 seconds</option><option value="90">90 seconds</option></select></div><div class="field"><label for="countdown">Pre-round countdown</label><select id="countdown"><option value="0">Off · start immediately</option><option value="3" selected>3 seconds</option><option value="5">5 seconds</option><option value="10">10 seconds</option></select></div><div class="field"><label for="pace">New callout every</label><select id="pace"><option value="2">~2 seconds · Sprint</option><option value="3" selected>~3 seconds · Fast</option><option value="4">~4 seconds · Active</option><option value="5">~5 seconds · Steady</option></select></div><div class="field"><label for="complexity">Combination complexity</label><select id="complexity"><option value="1">Simple · 2–3 punches</option><option value="2" selected>Mixed · 2–5 punches</option><option value="3">Advanced · 3–6 punches</option></select></div><div class="field"><label for="vocabulary">Callout style</label><select id="vocabulary"><option value="numbers" selected>Numbers (1–6)</option><option value="names">Punch names</option></select></div></div><div class="field" style="margin-top:16px"><label for="source">Combination style</label><select id="source"><option value="classic" selected>Classic boxing combinations</option><option value="mixed">Classic + generated combinations</option><option value="generated">Generated combinations only</option></select></div>
+<div class="field" style="margin-top:14px"><label for="speechRate">Voice speed</label><select id="speechRate"><option value="1.15">Deliberate · 1.15×</option><option value="1.5">Quick · 1.5×</option><option value="1.8" selected>Fast · 1.8×</option><option value="2">Very fast · 2×</option></select></div>
+<div class="subheading">Allowed punches</div><div class="punches"><label><input type="checkbox" id="p1" checked>1 · Jab</label><label><input type="checkbox" id="p2" checked>2 · Cross</label><label><input type="checkbox" id="p3" checked>3 · Lead hook</label><label><input type="checkbox" id="p4" checked>4 · Rear hook</label><label><input type="checkbox" id="p5" checked>5 · Lead upper</label><label><input type="checkbox" id="p6" checked>6 · Rear upper</label></div>
+<div class="checks"><label><input type="checkbox" id="voice" checked>Voice callouts</label><label><input type="checkbox" id="defense">Defensive maneuvers</label><label><input type="checkbox" id="movement">Footwork cues</label><label><input type="checkbox" id="bell" checked>Round bells</label></div><p class="note">With defense off, the coach calls only punches (plus footwork if enabled). Classic mode uses familiar boxing combinations filtered by your selected punches. If your selection has no suitable classics, the coach generates compatible sequences instead.</p><p class="note">The pre-round countdown runs before the first round only. During every rest, the coach automatically calls out 3, 2, 1 before the next round. Changes apply when you reset or start a new workout. Settings save on this device.</p></section>
+<section class="card"><h2>How it works</h2><div class="hint">During rounds, keep moving between calls. The coach picks familiar combinations, generates fresh ones, or mixes both, while respecting your allowed punches. Callout speed depends on your device’s installed speech voice. At the bell, recover before the next round. To stop, press Pause; to start over, Reset.</div><p class="legend" style="margin-top:12px">Punches: 1 jab · 2 cross · 3 lead hook · 4 rear hook · 5 lead uppercut · 6 rear uppercut</p><p class="note">For reliable audio, keep this page open and your screen awake. Mobile browsers may suspend sound when locked; use your phone’s screen-awake setting when training.</p></section></main>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const keys=['rounds','duration','rest','countdown','pace','complexity','vocabulary','source','speechRate','voice','defense','movement','bell',...Array.from({length:6},(_,i)=>'p'+(i+1))];
+const checks=new Set(['voice','defense','movement','bell',...Array.from({length:6},(_,i)=>'p'+(i+1))]);
+let config=null,mode='ready',previousMode='running',round=1,remain=180,deadline=0,tickId=null,nextCall=0,firstCall=true,lastCombo='',audioCtx,lastCountdownNumber=null;
+const names=['jab','cross','lead hook','rear hook','lead uppercut','rear uppercut'];
+// Established training sequences, deliberately not an arbitrary number generator.
+const classics=[
+ [1,2],[1,1,2],[1,2,3],[1,2,3,2],[2,3,2],[1,2,5,2],
+ [1,6,3,2],[1,2,3,6],[1,3,2],[1,2,1,2],[1,2,3,2,3],
+ [2,3,2,3],[1,2,5,6],[1,1,2,3,2],[1,2,3,2,5,2],
+ [1,2,1],[1,3,2,3],[1,2,5,2,3],[1,2,3,2,3,2],
+ [1,2,3,4,3,2],[2,5,2],[3,2,3],[1,2,3,2,5,2]
+];
+const defenses=['Slip left','Slip right','Roll under','Pull back'];
+const footwork=['Step back','Pivot out','Circle left','Circle right','Step left','Step right'];
+const rand=n=>Math.floor(Math.random()*n),pick=a=>a[rand(a.length)];
+const fmt=x=>`${Math.floor(x/60)}:${String(x%60).padStart(2,'0')}`;
+function opts(){const o={};for(const k of keys)o[k]=checks.has(k)?$(k).checked:$(k).value;return o}
+function persist(){try{localStorage.setItem('corns-corner-v4',JSON.stringify(opts()))}catch(e){}}
+function restore(){try{const saved=JSON.parse(localStorage.getItem('corns-corner-v4')||localStorage.getItem('corner-coach-v3')||localStorage.getItem('corner-coach-v2')||localStorage.getItem('corner-coach-v1')||'{}');if(Number(saved.pace)>5)saved.pace='3';for(const k of keys){if(saved[k]!==undefined){if(checks.has(k))$(k).checked=!!saved[k];else if([...$(k).options].some(o=>o.value===String(saved[k])))$(k).value=saved[k]}}}catch(e){}}
+function selectedPunches(o){return Array.from({length:6},(_,i)=>i+1).filter(n=>o['p'+n]);}
+function countRange(c){return c==='1'?[2,3]:c==='2'?[2,5]:[3,6]}
+function getClassicPool(o,allowed){const [min,max]=countRange(o.complexity);return classics.filter(c=>c.length>=min&&c.length<=max&&c.every(n=>allowed.includes(n)))}
+function generate(o,allowed){const [min,max]=countRange(o.complexity);const length=min+rand(max-min+1);let seq=[];for(let i=0;i<length;i++){
+ let options=allowed.map(n=>({n,w:1}));if(i>0){const prev=seq[i-1];for(const item of options){if(item.n===prev)item.w=.28;else if((item.n%2)!==(prev%2))item.w=2.8;else item.w=.75}}
+ if(i===0&&allowed.includes(1))options.find(x=>x.n===1).w=3;
+ const sum=options.reduce((s,x)=>s+x.w,0);let r=Math.random()*sum;let chosen=options[options.length-1].n;for(const x of options){r-=x.w;if(r<=0){chosen=x.n;break}}seq.push(chosen)}return seq}
+function chooseSequence(){const allowed=selectedPunches(config);const pool=getClassicPool(config,allowed);const useClassic=config.source==='classic'?(pool.length>0):config.source==='mixed'?(pool.length>0&&Math.random()<.65):false;
+ let seq;if(useClassic){const candidates=pool.filter(c=>c.join('-')!==lastCombo);seq=pick(candidates.length?candidates:pool).slice()}
+ else{let tries=0;do{seq=generate(config,allowed);tries++}while(seq.join('-')===lastCombo&&tries<8)}lastCombo=seq.join('-');return seq}
+function progress(){const root=$('progress');root.replaceChildren();for(let i=1;i<=Number(config?config.rounds:$('rounds').value);i++){const el=document.createElement('span');el.className=i<round?'done':i===round&&mode!=='ready'?'active':'';root.appendChild(el)}}
+function render(){const label=mode==='ready'?'READY':mode==='countdown'?'GET READY':mode==='rest'?'REST':mode==='done'?'FINISHED':mode==='paused'?'PAUSED':'WORK';$('state').textContent=label;$('time').textContent=fmt(Math.max(0,Math.ceil(remain)));$('round').textContent=mode==='done'?'Workout complete':mode==='rest'?`Next up: Round ${round+1} of ${config.rounds}`:`Round ${round} of ${(config?config.rounds:$('rounds').value)}`;$('start').textContent=mode==='running'||mode==='rest'||mode==='countdown'?'Pause':mode==='paused'?'Resume':mode==='done'?'Start again':'Start workout';progress()}
+function bell(count=1){if(!config?.bell)return;try{const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;audioCtx=audioCtx||new Audio();if(audioCtx.state==='suspended')audioCtx.resume();for(let i=0;i<count;i++){const o=audioCtx.createOscillator(),g=audioCtx.createGain(),t=audioCtx.currentTime+i*.29;o.type='sine';o.frequency.setValueAtTime(950,t);o.frequency.exponentialRampToValueAtTime(530,t+.22);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.16,t+.015);g.gain.exponentialRampToValueAtTime(.0001,t+.27);o.connect(g);g.connect(audioCtx.destination);o.start(t);o.stop(t+.28)}}catch(e){}}
+function say(s,rate){if(!config?.voice||!('speechSynthesis'in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(s);u.lang='en-US';u.rate=rate??Number(config.speechRate);u.pitch=.9;u.volume=1;speechSynthesis.speak(u)}catch(e){$('status').textContent='Spoken cues unavailable in this browser.'}}
+function call(){const c=chooseSequence();let cue=null;
+ if(config.defense&&config.movement){if(Math.random()<.36)cue=pick([...defenses,...footwork])}
+ else if(config.defense&&Math.random()<.32)cue=pick(defenses);
+ else if(config.movement&&Math.random()<.28)cue=pick(footwork);
+ const show=config.vocabulary==='names'?c.map(n=>names[n-1]).join(' · '):c.join(' – ');
+ $('callout').textContent=show;$('desc').textContent=cue||'Hands up · keep moving';
+ // Spaces, not commas: speech engines pause at comma punctuation.
+ const speech=c.map(n=>config.vocabulary==='names'?names[n-1]:String(n)).join(' ')+(cue?'. '+cue:'');say(speech)}
+function queueNext(now){const base=Number(config.pace)*1000;nextCall=now+base*(.9+Math.random()*.2)}
+function reset(){clearInterval(tickId);tickId=null;try{speechSynthesis.cancel()}catch(e){}config=null;mode='ready';round=1;remain=Number($('duration').value);firstCall=true;lastCombo='';lastCountdownNumber=null;$('callout').textContent='Gloves up.';$('desc').textContent='Your first combo is coming.';$('status').textContent='';render()}
+function enterRound(){
+ mode='running';remain=Number(config.duration);deadline=performance.now()+remain*1000;
+ firstCall=true;lastCountdownNumber=null;bell(1);
+ $('callout').textContent='Round '+round;$('desc').textContent='Get moving';
+ say('Round '+round+'. Work.',1.5);render();
+}
+function announceCountdown(){
+ // Use each whole second only once, even though the display refreshes 10 times/second.
+ const n=Math.ceil(remain);
+ if(n>=1&&n<=3&&n!==lastCountdownNumber){
+  lastCountdownNumber=n;
+  $('callout').textContent=String(n);
+  $('desc').textContent=mode==='rest'?'Next round approaching':'Starting soon';
+  say(String(n),1.8);
+ }
+}
+function transition(){
+ if(mode==='countdown'){enterRound();return;}
+ if(mode==='running'){
+  if(round>=Number(config.rounds)){
+   mode='done';remain=0;clearInterval(tickId);tickId=null;bell(3);
+   $('callout').textContent='Nice work.';$('desc').textContent='Session complete';
+   say('Workout complete. Nice work.',1.25);render();return;
+  }
+  mode='rest';remain=Number(config.rest);deadline=performance.now()+remain*1000;
+  lastCountdownNumber=null;bell(2);$('callout').textContent='Recover';
+  $('desc').textContent='Breathe. Loosen your shoulders.';say('Rest.',1.25);
+ }else if(mode==='rest'){round++;enterRound();return;}
+ render();
+}
+function tick(){
+ if(!['running','rest','countdown'].includes(mode))return;
+ const now=performance.now();remain=Math.max(0,(deadline-now)/1000);
+ if(remain<=0){transition();return;}
+ if(mode==='rest'||mode==='countdown')announceCountdown();
+ if(mode==='running'){
+  if(firstCall&&remain<=Number(config.duration)-.8){firstCall=false;call();queueNext(now)}
+  else if(!firstCall&&now>=nextCall&&remain>2){call();queueNext(now)}
+ }
+ render();
+}
+function start(){
+ if(['running','rest','countdown'].includes(mode)){
+  previousMode=mode;mode='paused';clearInterval(tickId);tickId=null;
+  try{speechSynthesis.cancel()}catch(e){}$('status').textContent='Paused';render();return;
+ }
+ if(mode==='paused'){
+  mode=previousMode;deadline=performance.now()+remain*1000;
+  if(mode==='running')nextCall=performance.now()+800;
+  tickId=setInterval(tick,100);$('status').textContent='';render();return;
+ }
+ if(mode==='done')reset();
+ config=opts();if(selectedPunches(config).length===0){$('status').textContent='Select at least one punch to start.';return}
+ persist();round=1;firstCall=true;lastCombo='';lastCountdownNumber=null;
+ try{if('speechSynthesis'in window){speechSynthesis.getVoices();speechSynthesis.cancel()}
+ if(config.bell){const Audio=window.AudioContext||window.webkitAudioContext;
+ if(Audio){audioCtx=audioCtx||new Audio();audioCtx.resume()}}}catch(e){}
+ const seconds=Number(config.countdown);
+ if(seconds>0){
+  mode='countdown';remain=seconds;deadline=performance.now()+seconds*1000;
+  $('callout').textContent='Get ready';$('desc').textContent='Starting soon';
+  // For the 3-second setting the first tick immediately announces three.
+  if(seconds>3)say('Get ready',1.5);
+  announceCountdown();
+ }else{enterRound()}
+ tickId=setInterval(tick,100);$('status').textContent='';render();
+}
+$('start').addEventListener('click',start);$('reset').addEventListener('click',reset);
+for(const k of keys)$(k).addEventListener('change',()=>{persist();if(mode==='ready')reset()});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&['running','rest','countdown'].includes(mode))tick()});restore();reset();
+})();
+</script><script>if("serviceWorker" in navigator && location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script></body></html>
