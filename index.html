@@ -5,16 +5,17 @@
 <section class="stage" aria-live="off"><div class="state" id="state">READY</div><div class="time" id="time">3:00</div><div class="round" id="round">Round 1 of 3</div><div class="callout" id="callout" aria-live="polite">Gloves up.</div><div class="description" id="desc">Your first combo is coming.</div><div class="progress" id="progress"></div></section>
 <div class="controls"><button class="btn primary" id="start">Start workout</button><button class="btn secondary" id="reset">Reset</button></div><div class="status" id="status" role="status"></div>
 <section class="card"><h2>Workout settings</h2><div class="settings"><div class="field"><label for="rounds">Rounds</label><select id="rounds"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option><option>12</option></select></div><div class="field"><label for="duration">Round length</label><select id="duration"><option value="60">1 minute</option><option value="120">2 minutes</option><option value="180" selected>3 minutes</option><option value="240">4 minutes</option><option value="300">5 minutes</option></select></div><div class="field"><label for="rest">Rest between rounds</label><select id="rest"><option value="15">15 seconds</option><option value="30">30 seconds</option><option value="45">45 seconds</option><option value="60" selected>60 seconds</option><option value="90">90 seconds</option></select></div><div class="field"><label for="countdown">Pre-round countdown</label><select id="countdown"><option value="0">Off · start immediately</option><option value="3" selected>3 seconds</option><option value="5">5 seconds</option><option value="10">10 seconds</option></select></div><div class="field"><label for="pace">New callout every</label><select id="pace"><option value="2">~2 seconds · Sprint</option><option value="3" selected>~3 seconds · Fast</option><option value="4">~4 seconds · Active</option><option value="5">~5 seconds · Steady</option></select></div><div class="field"><label for="complexity">Combination complexity</label><select id="complexity"><option value="1">Simple · 2–3 punches</option><option value="2" selected>Mixed · 2–5 punches</option><option value="3">Advanced · 3–6 punches</option></select></div><div class="field"><label for="vocabulary">Callout style</label><select id="vocabulary"><option value="numbers" selected>Numbers (1–6)</option><option value="names">Punch names</option></select></div></div><div class="field" style="margin-top:16px"><label for="source">Combination style</label><select id="source"><option value="classic" selected>Classic boxing combinations</option><option value="mixed">Classic + generated combinations</option><option value="generated">Generated combinations only</option></select></div>
-<div class="field" style="margin-top:14px"><label for="speechRate">Voice speed</label><select id="speechRate"><option value="1.15">Deliberate · 1.15×</option><option value="1.5">Quick · 1.5×</option><option value="1.8" selected>Fast · 1.8×</option><option value="2">Very fast · 2×</option></select></div>
+<div class="field" style="margin-top:14px"><label for="speechRate">Punch combination voice speed</label><select id="speechRate"><option value="1.15">Deliberate · 1.15×</option><option value="1.5">Quick · 1.5×</option><option value="1.8" selected>Fast · 1.8×</option><option value="2">Very fast · 2×</option></select></div>
+<div class="field" style="margin-top:14px"><label for="cueRate">Countdown &amp; coach voice speed</label><select id="cueRate"><option value="0.85">Relaxed · 0.85×</option><option value="1" selected>Natural · 1×</option><option value="1.15">Brisk · 1.15×</option><option value="1.3">Quick · 1.3×</option></select></div><p class="note">Punch combinations stay fast. Countdown numbers, round announcements, rest cues, and the finish announcement use a separate, calmer speed.</p>
 <div class="subheading">Allowed punches</div><div class="punches"><label><input type="checkbox" id="p1" checked>1 · Jab</label><label><input type="checkbox" id="p2" checked>2 · Cross</label><label><input type="checkbox" id="p3" checked>3 · Lead hook</label><label><input type="checkbox" id="p4" checked>4 · Rear hook</label><label><input type="checkbox" id="p5" checked>5 · Lead upper</label><label><input type="checkbox" id="p6" checked>6 · Rear upper</label></div>
-<div class="checks"><label><input type="checkbox" id="voice" checked>Voice callouts</label><label><input type="checkbox" id="defense">Defensive maneuvers</label><label><input type="checkbox" id="movement">Footwork cues</label><label><input type="checkbox" id="bell" checked>Round bells</label></div><p class="note">With defense off, the coach calls only punches (plus footwork if enabled). Classic mode uses familiar boxing combinations filtered by your selected punches. If your selection has no suitable classics, the coach generates compatible sequences instead.</p><p class="note">The pre-round countdown runs before the first round only. During every rest, the coach automatically calls out 3, 2, 1 before the next round. Changes apply when you reset or start a new workout. Settings save on this device.</p></section>
-<section class="card"><h2>How it works</h2><div class="hint">During rounds, keep moving between calls. The coach picks familiar combinations, generates fresh ones, or mixes both, while respecting your allowed punches. Callout speed depends on your device’s installed speech voice. At the bell, recover before the next round. To stop, press Pause; to start over, Reset.</div><p class="legend" style="margin-top:12px">Punches: 1 jab · 2 cross · 3 lead hook · 4 rear hook · 5 lead uppercut · 6 rear uppercut</p><p class="note">For reliable audio, keep this page open and your screen awake. Mobile browsers may suspend sound when locked; use your phone’s screen-awake setting when training.</p></section></main>
+<div class="checks"><label><input type="checkbox" id="voice" checked>Voice callouts</label><label><input type="checkbox" id="defense">Defensive maneuvers</label><label><input type="checkbox" id="movement">Footwork cues</label><label><input type="checkbox" id="bell" checked>Round bells</label><label><input type="checkbox" id="wake" checked>Keep screen awake</label></div><p class="note">With defense off, the coach calls only punches (plus footwork if enabled). Classic mode uses familiar boxing combinations filtered by your selected punches. If your selection has no suitable classics, the coach generates compatible sequences instead.</p><p class="note">The pre-round countdown runs before the first round only. During every rest, the coach automatically calls out 3, 2, 1 before the next round. Changes apply when you reset or start a new workout. Settings save on this device. Keep screen awake works on supported browsers while your workout is active.</p></section>
+<section class="card"><h2>How it works</h2><div class="hint">During rounds, keep moving between calls. The coach picks familiar combinations, generates fresh ones, or mixes both, while respecting your allowed punches. Callout speed depends on your device’s installed speech voice. At the bell, recover before the next round. To stop, press Pause; to start over, Reset.</div><p class="legend" style="margin-top:12px">Punches: 1 jab · 2 cross · 3 lead hook · 4 rear hook · 5 lead uppercut · 6 rear uppercut</p><p class="note">For reliable audio, leave the workout visible. Keep screen awake requests a display wake lock while training, but iOS may still pause the app if you manually lock the phone or switch apps.</p></section></main>
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
-const keys=['rounds','duration','rest','countdown','pace','complexity','vocabulary','source','speechRate','voice','defense','movement','bell',...Array.from({length:6},(_,i)=>'p'+(i+1))];
-const checks=new Set(['voice','defense','movement','bell',...Array.from({length:6},(_,i)=>'p'+(i+1))]);
-let config=null,mode='ready',previousMode='running',round=1,remain=180,deadline=0,tickId=null,nextCall=0,firstCall=true,lastCombo='',audioCtx,lastCountdownNumber=null;
+const keys=['rounds','duration','rest','countdown','pace','complexity','vocabulary','source','speechRate','cueRate','voice','defense','movement','bell','wake',...Array.from({length:6},(_,i)=>'p'+(i+1))];
+const checks=new Set(['voice','defense','movement','bell','wake',...Array.from({length:6},(_,i)=>'p'+(i+1))]);
+let config=null,mode='ready',previousMode='running',round=1,remain=180,deadline=0,tickId=null,nextCall=0,firstCall=true,lastCombo='',audioCtx,lastCountdownNumber=null,wakeLock=null,wakeUnsupportedNotice=false;
 const names=['jab','cross','lead hook','rear hook','lead uppercut','rear uppercut'];
 // Established training sequences, deliberately not an arbitrary number generator.
 const classics=[
@@ -29,8 +30,8 @@ const footwork=['Step back','Pivot out','Circle left','Circle right','Step left'
 const rand=n=>Math.floor(Math.random()*n),pick=a=>a[rand(a.length)];
 const fmt=x=>`${Math.floor(x/60)}:${String(x%60).padStart(2,'0')}`;
 function opts(){const o={};for(const k of keys)o[k]=checks.has(k)?$(k).checked:$(k).value;return o}
-function persist(){try{localStorage.setItem('corns-corner-v4',JSON.stringify(opts()))}catch(e){}}
-function restore(){try{const saved=JSON.parse(localStorage.getItem('corns-corner-v4')||localStorage.getItem('corner-coach-v3')||localStorage.getItem('corner-coach-v2')||localStorage.getItem('corner-coach-v1')||'{}');if(Number(saved.pace)>5)saved.pace='3';for(const k of keys){if(saved[k]!==undefined){if(checks.has(k))$(k).checked=!!saved[k];else if([...$(k).options].some(o=>o.value===String(saved[k])))$(k).value=saved[k]}}}catch(e){}}
+function persist(){try{localStorage.setItem('corns-corner-v5',JSON.stringify(opts()))}catch(e){}}
+function restore(){try{const saved=JSON.parse(localStorage.getItem('corns-corner-v5')||localStorage.getItem('corns-corner-v4')||localStorage.getItem('corner-coach-v3')||localStorage.getItem('corner-coach-v2')||localStorage.getItem('corner-coach-v1')||'{}');if(Number(saved.pace)>5)saved.pace='3';for(const k of keys){if(saved[k]!==undefined){if(checks.has(k))$(k).checked=!!saved[k];else if([...$(k).options].some(o=>o.value===String(saved[k])))$(k).value=saved[k]}}}catch(e){}}
 function selectedPunches(o){return Array.from({length:6},(_,i)=>i+1).filter(n=>o['p'+n]);}
 function countRange(c){return c==='1'?[2,3]:c==='2'?[2,5]:[3,6]}
 function getClassicPool(o,allowed){const [min,max]=countRange(o.complexity);return classics.filter(c=>c.length>=min&&c.length<=max&&c.every(n=>allowed.includes(n)))}
@@ -45,6 +46,7 @@ function progress(){const root=$('progress');root.replaceChildren();for(let i=1;
 function render(){const label=mode==='ready'?'READY':mode==='countdown'?'GET READY':mode==='rest'?'REST':mode==='done'?'FINISHED':mode==='paused'?'PAUSED':'WORK';$('state').textContent=label;$('time').textContent=fmt(Math.max(0,Math.ceil(remain)));$('round').textContent=mode==='done'?'Workout complete':mode==='rest'?`Next up: Round ${round+1} of ${config.rounds}`:`Round ${round} of ${(config?config.rounds:$('rounds').value)}`;$('start').textContent=mode==='running'||mode==='rest'||mode==='countdown'?'Pause':mode==='paused'?'Resume':mode==='done'?'Start again':'Start workout';progress()}
 function bell(count=1){if(!config?.bell)return;try{const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;audioCtx=audioCtx||new Audio();if(audioCtx.state==='suspended')audioCtx.resume();for(let i=0;i<count;i++){const o=audioCtx.createOscillator(),g=audioCtx.createGain(),t=audioCtx.currentTime+i*.29;o.type='sine';o.frequency.setValueAtTime(950,t);o.frequency.exponentialRampToValueAtTime(530,t+.22);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.16,t+.015);g.gain.exponentialRampToValueAtTime(.0001,t+.27);o.connect(g);g.connect(audioCtx.destination);o.start(t);o.stop(t+.28)}}catch(e){}}
 function say(s,rate){if(!config?.voice||!('speechSynthesis'in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(s);u.lang='en-US';u.rate=rate??Number(config.speechRate);u.pitch=.9;u.volume=1;speechSynthesis.speak(u)}catch(e){$('status').textContent='Spoken cues unavailable in this browser.'}}
+function sayCue(s){say(s,Number(config.cueRate||1))}
 function call(){const c=chooseSequence();let cue=null;
  if(config.defense&&config.movement){if(Math.random()<.36)cue=pick([...defenses,...footwork])}
  else if(config.defense&&Math.random()<.32)cue=pick(defenses);
@@ -54,12 +56,27 @@ function call(){const c=chooseSequence();let cue=null;
  // Spaces, not commas: speech engines pause at comma punctuation.
  const speech=c.map(n=>config.vocabulary==='names'?names[n-1]:String(n)).join(' ')+(cue?'. '+cue:'');say(speech)}
 function queueNext(now){const base=Number(config.pace)*1000;nextCall=now+base*(.9+Math.random()*.2)}
-function reset(){clearInterval(tickId);tickId=null;try{speechSynthesis.cancel()}catch(e){}config=null;mode='ready';round=1;remain=Number($('duration').value);firstCall=true;lastCombo='';lastCountdownNumber=null;$('callout').textContent='Gloves up.';$('desc').textContent='Your first combo is coming.';$('status').textContent='';render()}
+function workoutActive(){return ['running','rest','countdown'].includes(mode)}
+async function requestWakeLock(){
+ if(!config?.wake||!workoutActive()||document.hidden||wakeLock)return;
+ if(!('wakeLock' in navigator)){
+  if(!wakeUnsupportedNotice){$('status').textContent='Screen wake lock unavailable here. Increase Auto-Lock in iPhone settings if needed.';wakeUnsupportedNotice=true;}
+  return;
+ }
+ try{
+  const lock=await navigator.wakeLock.request('screen');
+  if(!workoutActive()||!config?.wake||document.hidden){await lock.release();return}
+  wakeLock=lock;
+  lock.addEventListener('release',()=>{if(wakeLock===lock)wakeLock=null});
+ }catch(e){$('status').textContent='Could not keep screen awake. Keep the app visible and check phone power settings.';}
+}
+function releaseWakeLock(){if(!wakeLock)return;const lock=wakeLock;wakeLock=null;lock.release().catch(()=>{});}
+function reset(){releaseWakeLock();clearInterval(tickId);tickId=null;try{speechSynthesis.cancel()}catch(e){}config=null;mode='ready';round=1;remain=Number($('duration').value);firstCall=true;lastCombo='';lastCountdownNumber=null;$('callout').textContent='Gloves up.';$('desc').textContent='Your first combo is coming.';$('status').textContent='';render()}
 function enterRound(){
  mode='running';remain=Number(config.duration);deadline=performance.now()+remain*1000;
  firstCall=true;lastCountdownNumber=null;bell(1);
  $('callout').textContent='Round '+round;$('desc').textContent='Get moving';
- say('Round '+round+'. Work.',1.5);render();
+ sayCue('Round '+round+'. Work.');render();
 }
 function announceCountdown(){
  // Use each whole second only once, even though the display refreshes 10 times/second.
@@ -68,20 +85,20 @@ function announceCountdown(){
   lastCountdownNumber=n;
   $('callout').textContent=String(n);
   $('desc').textContent=mode==='rest'?'Next round approaching':'Starting soon';
-  say(String(n),1.8);
+  sayCue(String(n));
  }
 }
 function transition(){
  if(mode==='countdown'){enterRound();return;}
  if(mode==='running'){
   if(round>=Number(config.rounds)){
-   mode='done';remain=0;clearInterval(tickId);tickId=null;bell(3);
+   mode='done';remain=0;releaseWakeLock();clearInterval(tickId);tickId=null;bell(3);
    $('callout').textContent='Nice work.';$('desc').textContent='Session complete';
-   say('Workout complete. Nice work.',1.25);render();return;
+   sayCue('Workout complete. Nice work.');render();return;
   }
   mode='rest';remain=Number(config.rest);deadline=performance.now()+remain*1000;
   lastCountdownNumber=null;bell(2);$('callout').textContent='Recover';
-  $('desc').textContent='Breathe. Loosen your shoulders.';say('Rest.',1.25);
+  $('desc').textContent='Breathe. Loosen your shoulders.';sayCue('Rest.');
  }else if(mode==='rest'){round++;enterRound();return;}
  render();
 }
@@ -98,13 +115,13 @@ function tick(){
 }
 function start(){
  if(['running','rest','countdown'].includes(mode)){
-  previousMode=mode;mode='paused';clearInterval(tickId);tickId=null;
+  previousMode=mode;mode='paused';releaseWakeLock();clearInterval(tickId);tickId=null;
   try{speechSynthesis.cancel()}catch(e){}$('status').textContent='Paused';render();return;
  }
  if(mode==='paused'){
   mode=previousMode;deadline=performance.now()+remain*1000;
   if(mode==='running')nextCall=performance.now()+800;
-  tickId=setInterval(tick,100);$('status').textContent='';render();return;
+  tickId=setInterval(tick,100);$('status').textContent='';requestWakeLock();render();return;
  }
  if(mode==='done')reset();
  config=opts();if(selectedPunches(config).length===0){$('status').textContent='Select at least one punch to start.';return}
@@ -117,13 +134,13 @@ function start(){
   mode='countdown';remain=seconds;deadline=performance.now()+seconds*1000;
   $('callout').textContent='Get ready';$('desc').textContent='Starting soon';
   // For the 3-second setting the first tick immediately announces three.
-  if(seconds>3)say('Get ready',1.5);
+  if(seconds>3)sayCue('Get ready');
   announceCountdown();
  }else{enterRound()}
- tickId=setInterval(tick,100);$('status').textContent='';render();
+ tickId=setInterval(tick,100);$('status').textContent='';requestWakeLock();render();
 }
 $('start').addEventListener('click',start);$('reset').addEventListener('click',reset);
 for(const k of keys)$(k).addEventListener('change',()=>{persist();if(mode==='ready')reset()});
-document.addEventListener('visibilitychange',()=>{if(!document.hidden&&['running','rest','countdown'].includes(mode))tick()});restore();reset();
+document.addEventListener('visibilitychange',()=>{if(document.hidden){releaseWakeLock();return}if(workoutActive()){tick();requestWakeLock()}});restore();reset();
 })();
 </script><script>if("serviceWorker" in navigator && location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script></body></html>
